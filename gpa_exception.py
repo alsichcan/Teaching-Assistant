@@ -5,7 +5,7 @@ gpa_dict = {'A': 4, 'B': 3, 'C': 2, 'D': 1}
 cnt = 1
 while True:
     try:
-        credit = int(input("%d회: 해당 교과목의 학점 수를 1 이상 4 이하의 자연수로 입력하세요(-1 입력시 종료): " %cnt))
+        credit = int(input("%d회 : 해당 교과목의 학점 수를 1 이상 4 이하의 자연수로 입력하세요(-1 입력시 종료) : " %cnt))
     except ValueError:
         print("정수를 입력해야 합니다.")
     else:
@@ -14,7 +14,7 @@ while True:
         else:
             while True:
                 try:
-                    gpa = gpa_dict[input("%d회: 평점을 대문자 알파벳으로 입력하세요: " %cnt)]
+                    gpa = gpa_dict[input("%d회 : 평점을 대문자 알파벳으로 입력하세요 : " %cnt)]
                     gpa_list.append((credit, gpa))
                     break
                 except KeyError:
@@ -30,6 +30,6 @@ for credit, gpa in gpa_list:
     weighted_sum += gpa * credit
 
 try:
-    print("평균 평점: %.2f" %round(float(weighted_sum)/credit_sum, 2))
+    print("평균 평점 : %.2f" %round(float(weighted_sum)/credit_sum, 2))
 except ZeroDivisionError:
     print("입력이 없어 결과를 출력하지 않고 종료합니다.")

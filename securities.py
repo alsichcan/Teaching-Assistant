@@ -13,6 +13,7 @@ security_info = [
     {'일자': '19.04.26', '종가': 764000, '거래량': 68237 },
 ]
 
+
 def sort_security(input_data, sort_option, return_size=5):
     if sort_option not in ['수익률', '거래량']:
         print("두 번째 전달인자를 잘못 입력하였습니다.")
@@ -32,6 +33,11 @@ def sort_security(input_data, sort_option, return_size=5):
             data[i]['수익률'] = round(float(data[i]['종가']-data[i-1]['종가'])/data[i-1]['종가'], 4)
         return list(sorted(data[1:], key=lambda datum: datum['수익률'], reverse=True))[:return_size]
 
+
+# 테스트 0 : 모든 올바른 경우의 수에 대해 결과값을 출력한다.
+for opt in ['거래량', '수익률']:
+    for num in range(1, 10):
+        print(sort_security(security_info, opt, num))
 
 # 테스트 1: 모두 정상적인 전달인자를 입력하여 수익률 기준으로 내림차순 정렬한다.
 print("전달인자 => security_info, '수익률', 4 : 수익률 기준으로 내림차순 정렬")
